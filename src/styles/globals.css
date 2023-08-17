@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#logoimg{
+  height: 4rem;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-image: url('/src/styles/media/background.png');
+  background-repeat: repeat;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.movie-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: left;
+}
+
+.movie-card {
+  width: 200px;
+  /* cursor: pointer; */
+  margin-bottom: 7px;
+}
+
+.movie-image {
+  position: relative;
+  transition: transform 0.4s, box-shadow 0.4s;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+.movie-image:hover {
+  transform: scale(1.02);
+  box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.5);
+}
+
+.movie-image .arrows {
+  position: absolute;
+  width: auto;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+.movie-image:hover .arrows {
+  display: block;
+  cursor: pointer;
+}
+
+.movie-image .overlay {
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.movie-image:hover .movie-image,
+.movie-image:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.popcorn-logo {
+  background-image: url('/src/styles/media/logo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background-image {
+  background-image: url('/background.png');
+  background-repeat: repeat;
+  animation-name: moveBackground;
+  animation-duration: 120s;
+  /* Adjust the duration for a faster or slower animation */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.movie-title {
+  color: rgb(90, 90, 90);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.movie-title:hover {
+  color: black;
+}
+
+.movie-card-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.movie-card-button {
+  width: 90%;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.movie-card-image-container:hover .movie-card-button {
+  display: inline-block;
+}
+
+.profile-icon {
+  font-size: 24px;
+  color: rgb(90, 90, 90);
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+.profile-icon:hover {
+  font-size: 25px;
+  color: rgb(52, 52, 52);
+}
+
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 85%;
+}
+
+.not-signed-in-message {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  color: #721c24;
+  font-size: 1.1rem;
+  /* margin: 2rem; */
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.bg-test {
+  background-image: url('/public/create-integration.gif');
+}
+
+.info-bubble {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  /* width: 300px; */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 16px 16px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.info-bubble__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.error-message{
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 16px 16px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  border-right: 5px solid red;
+}
+
+.success-message {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 16px 16px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  border-right: 5px solid green;
+}
+
+.loading-message {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 16px 16px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  border-right: 5px solid gray;
+}
+
+.footer-fixed {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
